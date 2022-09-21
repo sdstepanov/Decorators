@@ -3,11 +3,9 @@ from functools import wraps
 
 
 def path_log(path):
-	logging.basicConfig(filename=path,
-						format='[%(asctime)s] | %(message)s',
-						datefmt='%Y-%m-%d %H:%M:%S',
-						level=logging.INFO,
-						encoding='utf-8')
+	format_log = '[%(asctime)s] | %(message)s'
+	date_log = '%Y-%m-%d %H:%M:%S'
+	logging.basicConfig(filename=path, format=format_log, datefmt=date_log, level=logging.INFO, encoding='utf-8')
 
 	def log(old_function):
 		@wraps(old_function)
